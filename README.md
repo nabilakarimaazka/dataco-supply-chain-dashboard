@@ -1,9 +1,9 @@
 # DataCo Supply Chain Performance Dashboard
 
-End-to-end analytics project: **BigQuery (SQL) → Looker Studio** on the Kaggle *DataCo Smart Supply Chain* dataset.
+End-to-end analytics project: **BigQuery (SQL) → Data Studio** on the Kaggle *DataCo Smart Supply Chain* dataset.
 The dashboard answers three business questions about sales, delivery and profitability.
 
-🔗 **Live dashboard:** [Open in Looker Studio](https://datastudio.google.com/reporting/1186b0c8-aa28-40fa-b831-02dec486b713)
+🔗 **Live dashboard:** [Open in Data Studio](https://datastudio.google.com/reporting/1186b0c8-aa28-40fa-b831-02dec486b713)
 
 ![Executive Overview](images/page1_executive_overview.png)
 ![Delivery Performance](images/page2_delivery_performance.png)
@@ -29,7 +29,7 @@ Growth and category figures are for the last 12 months (Oct 2016 – Sep 2017, c
 
 ## Architecture
 ```
-Kaggle CSV ──► raw.dataco_orders ──► staging.stg_orders (view) ──► mart.fct_orders (table) ──► Looker Studio
+Kaggle CSV ──► raw.dataco_orders ──► staging.stg_orders (view) ──► mart.fct_orders (table) ──► Data Studio
                  raw.country_mapping ───────────────────────────────▲
 ```
 | Layer | Object | Purpose |
@@ -60,7 +60,7 @@ Kaggle CSV ──► raw.dataco_orders ──► staging.stg_orders (view) ─�
 - BigQuery Sandbox expires tables after 60 days, so `fct_orders` is not partitioned and the Data Studio report uses an extracted data source. With billing enabled, add `PARTITION BY DATE_TRUNC(order_date, MONTH)`.
 
 ## Tech stack
-BigQuery (SQL, views, clustering) · Looker Studio (calculated fields, date comparison, controls) · Git/GitHub
+BigQuery (SQL, views, clustering) · Data Studio (calculated fields, date comparison, controls) · Git/GitHub
 
 ## Data source
 [DataCo Smart Supply Chain for Big Data Analysis – Kaggle](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis). The raw CSV is not included in this repo (size and personal-data fields); download it from Kaggle to reproduce.
