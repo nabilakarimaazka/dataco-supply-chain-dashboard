@@ -1,0 +1,5 @@
+# Data mentah jangan di-upload (besar & ada data pribadi) -> link ke Kaggle di README
+data/
+*.csv
+!sql/**/*.csv
+.DS_Store
